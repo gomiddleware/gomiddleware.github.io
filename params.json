@@ -1,0 +1,6 @@
+{
+  "name": "Standard GoLang HTTP Middleware.",
+  "tagline": "Uses only the standard library, including the regular `context` package.",
+  "body": "Go Middleware!\r\n\r\n## Middleware ##\r\n\r\n* [recover](github.com/gomiddleware/recover)\r\n\r\n## ToDo ##\r\n\r\nPlease create an issue or PR against one of the repos in the GoMiddleware org.\r\n\r\n(Ends)\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
