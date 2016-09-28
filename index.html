@@ -18,17 +18,38 @@
     <section class="main-content">
       <p>
         <a href="https://github.com/gomiddleware">Go Middleware</a> is a collection of standard HTTP middleware
-        packages for Go that you can use individually in your projects. It has two aims in life:
+        packages for Go that you can use individually in your projects. It has three aims in life:
       </p>
+      <ol>
+        <li>adheres to Go's standard <code>http.Handler</code> interface</li>
+        <li>uses the stdlib's <code>context</code> package instead of being reliant on an external one</li>
+        <li>uses minimal dependencies</li>
+      </ol>
+
+      <h3>Go's <code>http.Handler</code> Interface</h3>
+      <p>
+        For maximum reusability, we only create middleware which adheres to this interface. Most middleware takes
+        the <code>next</code> middleware and calls it when appropriate. Using this interface means that many other
+        frameworks and routers can use any of the middleware here.
+      </p>
+      <p>
+        Example frameworks are: [Goji](https://goji.io).
+      </p>
+      <p>
+        Some example routers are: [Alice](https://github.com/justinas/alice).
+      </p>
+
+      <h3>Use of the Standard Library's <code>context</code> Package.</h3>
+      <p>
+        Rather than having to rely on something else such as Gorilla's <code>context</code> package, we prefer to use
+        what we have already been given. It also means we don't have to install an extra library too. Since Go v1.7,
+        the <code>context</code> package has been included in the stdlib, so it is beneficial to use it.
+      </p>
+
       <h3>Minimal Dependencies</h3>
       <p>
         Most middlewares have shallow or no dependencies apart from the standard library. We don't want to bring in the
         entire jungle for any middleware you need.
-      </p>
-      <h3>Use of the Standard Library's `context` Package..</h3>
-      <p>
-        Rather than having to rely on something else such as Gorilla's `context` package, we prefer to use what we have
-        already been given. It also means we don't have to install an extra library too.
       </p>
 
       <h2>
@@ -48,10 +69,11 @@
       </ul>
 
       <p>
-        You may notice some overlap in some middlewares and that's because we favour keeping the simple ones simple and
-        adding a new package for more complicated uses. This doesn't increase too much duplication and since Go is rock
-        solid for both running and compiling (through the Go v1 compatibility promise) you can be sure that each
-        package is also pretty stable and well-tested.
+        Each project may provide one or more middlewares you can use in your program. Some projects may provide a
+        simple version, a configurable version and perhaps more advanced version of the same middleware. In most cases
+        you would only use one middleware from each project but of course you are free to use any and as many as you
+        like. Since Go is rock solid for both running and compiling (through the Go v1 compatibility promise) you can
+        be sure that each package is stable, well-tested, and will continue to work for many years.
       </p>
 
       <h2>
