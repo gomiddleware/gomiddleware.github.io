@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Standard GoLang HTTP Middleware.</h1>
-      <h2 class="project-tagline">Our aim: (i) http.Handler interface, (ii) `context`, (iii) minimal dependencies</h2>
+      <h2 class="project-tagline">Our aim: (1) http.Handler interface, (2) `context`, (3) minimal dependencies.</h2>
     </section>
 
     <section class="main-content">
@@ -75,6 +75,22 @@
         like. Since Go is rock solid for both running and compiling (through the Go v1 compatibility promise) you can
         be sure that each package is stable, well-tested, and will continue to work for many years.
       </p>
+
+      <h2>
+        <a id="todo" class="anchor" href="#todo" aria-hidden="true"></a>
+        Other Middleware We Recommend
+      </h2>
+
+      <p>
+        We don't want to write, or re-write everything ourselves, so we also recommend other packages too.  In general,
+        we use other middleware which aligns with our ideals: (i) <code>http.Handler</code>, (ii) uses
+        stdlib's <code>context</code> pkg, (iii) minimal dependencies. Each of these external packages is vetted (briefly)
+        and included here as a recommendation. Please get in touch if you feel a particular pacakge shouldn't be here.
+      </p>
+
+      <ul>
+        <li><a href="https://github.com/justinas/nosurf/">nosurf</a> (<a href="https://godoc.org/github.com/justinas/nosurf">godoc</a>)</li>
+      </ul>
 
       <h2>
         <a id="todo" class="anchor" href="#todo" aria-hidden="true"></a>
