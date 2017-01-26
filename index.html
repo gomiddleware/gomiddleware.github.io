@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Standard GoLang HTTP Middleware.</h1>
-      <h2 class="project-tagline">Our aim: (1) http.Handler interface, (2) `context`, (3) minimal dependencies.</h2>
+      <h2 class="project-tagline">Our aim: (1) http.Handler interface, (2) StdLib context, (3) minimal dependencies.</h2>
     </section>
 
     <section class="main-content">
@@ -25,6 +25,11 @@
         <li>uses the stdlib's <code>context</code> package instead of being reliant on an external one</li>
         <li>uses minimal dependencies</li>
       </ol>
+      <p>
+        We have also provided a mux (router) which handles middleware as first-class objects, instead of being
+        relegated to a middleware chain. In all lists of middleware in these docs, the mux (router) is always listed
+        first.
+      </p>
 
       <h3>Go's <code>http.Handler</code> Interface</h3>
       <p>
@@ -51,24 +56,40 @@
         Most middlewares have shallow or no dependencies apart from the standard library. We don't want to bring in the
         entire jungle for any middleware you need.
       </p>
+      <p>
+        We also believe that you shouldn't put all your middleware into one big grab-bag middleware package and instead
+        you just vendor in what you need. Most of these middlewares consist of a code file, a doc file, a ReadMe and a
+        test file. This is smaller than bringing an entire middleware package in and using only 15% of it.
+      </p>
+
+      <h2>
+        <a id="middleware" class="anchor" href="#mux" aria-hidden="true"></a>
+        The gomiddleware/mux
+      </h2>
+      <p>
+         We think that middleware is a first-class object and should be used directly, instead of having to create and
+         managed long-winded middleware chains. The gomiddleware/mux allows this.
+      </p>
+      <ul>
+        <li><a href="https://github.com/gomiddleware/mux">mux</a> (<a href="https://godoc.org/github.com/gomiddleware/mux">godoc</a>)</li>
+      </ul>
 
       <h2>
         <a id="middleware" class="anchor" href="#middleware" aria-hidden="true"></a>
-        All Middleware
+        Middleware
       </h2>
       <p>
          By relying on minimal dependencies, the standard library and the standard `context` package, you can be sure
          that if you vendor in any middleware here it will be both as minimal and as compatible as can be. This is just
          a start and many more will become available over time.
       </p>
-
       <ul>
         <li><a href="https://github.com/gomiddleware/recover">recover</a> (<a href="https://godoc.org/github.com/gomiddleware/recover">godoc</a>)</li>
         <li><a href="https://github.com/gomiddleware/slash">slash</a> (<a href="https://godoc.org/github.com/gomiddleware/slash">godoc</a>)</li>
         <li><a href="https://github.com/gomiddleware/reqid">reqid</a> (<a href="https://godoc.org/github.com/gomiddleware/reqid">godoc</a>)</li>
         <li><a href="https://github.com/gomiddleware/logger">logger</a> (<a href="https://godoc.org/github.com/gomiddleware/logger">godoc</a>)</li>
+        <li><a href="https://github.com/gomiddleware/realip">logger</a> (<a href="https://godoc.org/github.com/gomiddleware/realip">godoc</a>)</li>
       </ul>
-
       <p>
         Each project may provide one or more middlewares you can use in your program. Some projects may provide a
         simple version, a configurable version and perhaps more advanced version of the same middleware. In most cases
@@ -81,14 +102,12 @@
         <a id="todo" class="anchor" href="#todo" aria-hidden="true"></a>
         Other Middleware We Recommend
       </h2>
-
       <p>
         We don't want to write, or re-write everything ourselves, so we also recommend other packages too.  In general,
         we use other middleware which aligns with our ideals: (i) <code>http.Handler</code>, (ii) uses
         stdlib's <code>context</code> pkg, (iii) minimal dependencies. Each of these external packages is vetted (briefly)
         and included here as a recommendation. Please get in touch if you feel a particular pacakge shouldn't be here.
       </p>
-
       <ul>
         <li>
           <a href="https://github.com/justinas/nosurf/">nosurf</a>
@@ -106,9 +125,7 @@
         <a id="todo" class="anchor" href="#todo" aria-hidden="true"></a>
         Missing Middleware
       </h2>
-
       <p>If you think some middleware is missing, please create an issue or PR against one of the repos in the GoMiddleware org.</p>
-
       <p>(Ends)</p>
 
       <footer class="site-footer">
