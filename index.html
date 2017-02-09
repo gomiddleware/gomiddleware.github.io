@@ -70,6 +70,14 @@
          We think that middleware is a first-class object and should be used directly, instead of having to create and
          managed long-winded middleware chains. The gomiddleware/mux allows this.
       </p>
+<pre><code>m := mux.New()
+
+// log all requests
+m.Use("/", logger.New())
+
+// add an Id to each request, and then serve the homepage
+m.Get("/", reqid.RandomId, homeHandler)
+</code></pre>
       <ul>
         <li><a href="https://github.com/gomiddleware/mux">mux</a> (<a href="https://godoc.org/github.com/gomiddleware/mux">godoc</a>)</li>
       </ul>
